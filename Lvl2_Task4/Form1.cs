@@ -61,6 +61,7 @@ namespace Lvl2_Task4
             }
 
             listBoxReversed.Items.Clear();
+            // отображаем перевернутый массив
             for (int i = 0; i < reversedArray.Length; i++)
             {
                 listBoxReversed.Items.Add($"Элемент {i + 1}: {reversedArray[i]}");
