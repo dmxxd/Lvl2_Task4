@@ -22,7 +22,7 @@ namespace Lvl2_Task4
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (currentIndex < 5)
+            if (currentIndex < 5) // проверяем лимит
             {
                 if (int.TryParse(txtInput.Text, out int value))
                 {
@@ -32,6 +32,7 @@ namespace Lvl2_Task4
                     txtInput.Clear();
                     txtInput.Focus();
 
+                    // если ввели 5 чисел
                     if (currentIndex == 5)
                     {
                         btnAdd.Enabled = false;
@@ -51,8 +52,9 @@ namespace Lvl2_Task4
 
         private void btnReverse_Click(object sender, EventArgs e)
         {
-            // Создание нового массива
-            int[] reversedArray = new int[5];
+        
+            int[] reversedArray = new int[5]; // создаем новый
+            // заполняем массив в обратном порядке
             for (int i = 0; i < originalArray.Length; i++)
             {
                 reversedArray[i] = originalArray[originalArray.Length - 1 - i];
@@ -67,12 +69,12 @@ namespace Lvl2_Task4
 
         private void btnReverseInPlace_Click(object sender, EventArgs e)
         {
-            // Реверс в том же массиве
+            // меняем местами симметричные элементы
             for (int i = 0; i < originalArray.Length / 2; i++)
             {
-                int temp = originalArray[i];
-                originalArray[i] = originalArray[originalArray.Length - 1 - i];
-                originalArray[originalArray.Length - 1 - i] = temp;
+                int temp = originalArray[i]; // сохраняем левый
+                originalArray[i] = originalArray[originalArray.Length - 1 - i]; // левый = правый
+                originalArray[originalArray.Length - 1 - i] = temp; // правый = левый
             }
 
             listBoxReversed.Items.Clear();
